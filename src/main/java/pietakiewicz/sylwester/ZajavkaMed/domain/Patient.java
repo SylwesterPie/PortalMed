@@ -7,7 +7,7 @@ import java.time.OffsetDateTime;
 @With
 @Value
 @Builder
-@EqualsAndHashCode(of = {"patientId", "pesel"})
+@EqualsAndHashCode(of = {"patientId"})
 @ToString(of = {"patientId", "name", "surname", "email"})
 public class Patient {
     Integer patientId;

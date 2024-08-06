@@ -1,9 +1,18 @@
 package pietakiewicz.sylwester.ZajavkaMed.domain;
 
-import java.util.List;
+import lombok.*;
 
+import java.util.List;
+import java.util.UUID;
+
+@Value
+@Builder
+@With
+@EqualsAndHashCode(of = "patientCardId")
+@ToString(of = "uuid")
 public class PatientCard {
-    Integer id;
+    Integer patientCardId;
+    UUID uuid;
     List<Diseases> diseasesList;
     List<Medicament> medicamentList;
     List<Appointment> appointmentList;

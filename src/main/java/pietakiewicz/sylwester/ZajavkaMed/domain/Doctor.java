@@ -1,7 +1,14 @@
 package pietakiewicz.sylwester.ZajavkaMed.domain;
 
+import lombok.*;
+
 import java.util.List;
 
+@Value
+@Builder
+@With
+@EqualsAndHashCode(of = "cert")
+@ToString(of = {"email", "name", "surname"})
 public class Doctor {
     Integer id;
     String email;
