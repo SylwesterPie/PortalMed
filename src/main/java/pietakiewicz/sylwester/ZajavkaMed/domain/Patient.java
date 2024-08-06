@@ -1,9 +1,16 @@
 package pietakiewicz.sylwester.ZajavkaMed.domain;
 
+import lombok.*;
+
 import java.time.OffsetDateTime;
 
+@With
+@Value
+@Builder
+@EqualsAndHashCode(of = {"patientId", "pesel"})
+@ToString(of = {"patientId", "name", "surname", "email"})
 public class Patient {
-    Integer id;
+    Integer patientId;
     String email;
     String name;
     String surname;
