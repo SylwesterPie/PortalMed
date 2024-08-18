@@ -1,6 +1,7 @@
 package pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 @Entity
 @Table(name = "specializations")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class SpecializationEntity {

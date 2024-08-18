@@ -1,15 +1,15 @@
 package pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
+import pietakiewicz.sylwester.ZajavkaMed.domain.AppointmentStatus;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppointmentEntity {
@@ -38,9 +38,6 @@ public class AppointmentEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Status status;
+    private AppointmentStatus status;
 
-    public enum Status {
-        PLANNED, IN_PROGRESS, FINISHED, CANCELED
-    }
 }

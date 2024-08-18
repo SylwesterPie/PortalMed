@@ -1,6 +1,7 @@
 package pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "patients_cards")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class PatientCardEntity {
