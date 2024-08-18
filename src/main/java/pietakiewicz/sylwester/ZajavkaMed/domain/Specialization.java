@@ -8,7 +8,7 @@ import lombok.*;
 @EqualsAndHashCode(of = "specializationId")
 @ToString
 public class Specialization {
-    Integer specializationId;
+    Long specializationId;
     String name;
     String desc;
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "patientCardId")
 @ToString(of = "uuid")
 public class PatientCard {
-    Integer patientCardId;
+    Long patientCardId;
     UUID uuid;
     List<Diseases> diseasesList;
     List<Medicament> medicamentList;

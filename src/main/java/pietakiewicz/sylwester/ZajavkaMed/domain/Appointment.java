@@ -2,19 +2,19 @@ package pietakiewicz.sylwester.ZajavkaMed.domain;
 
 import lombok.*;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @With
 @Builder
 @Value
-@EqualsAndHashCode(of = "UUID")
+@EqualsAndHashCode(of = "appointmentId")
 @ToString(of = {"appointmentId", "patient", "doctor", "status"})
 public class Appointment {
-    Integer appointmentId;
-    UUID UUID;
+    Long appointmentId;
+    UUID uuid;
     Patient patient;
     Doctor doctor;
-    OffsetDateTime data;
+    LocalDateTime date;
     AppointmentStatus status;
 }

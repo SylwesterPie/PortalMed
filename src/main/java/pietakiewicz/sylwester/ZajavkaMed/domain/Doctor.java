@@ -10,7 +10,7 @@ import java.util.List;
 @EqualsAndHashCode(of = "cert")
 @ToString(of = {"email", "name", "surname"})
 public class Doctor {
-    Integer id;
+    Long id;
     String email;
     String name;
     String surname;

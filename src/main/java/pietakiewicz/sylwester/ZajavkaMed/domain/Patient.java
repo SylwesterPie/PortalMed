@@ -10,7 +10,7 @@ import java.time.OffsetDateTime;
 @EqualsAndHashCode(of = {"patientId"})
 @ToString(of = {"patientId", "name", "surname", "email"})
 public class Patient {
-    Integer patientId;
+    Long patientId;
     String email;
     String name;
     String surname;
