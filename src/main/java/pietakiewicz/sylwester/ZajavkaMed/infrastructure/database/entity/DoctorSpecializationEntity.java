@@ -19,9 +19,8 @@ public class DoctorSpecializationEntity {
     @Column(name = "doctor_specialization_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id", nullable = false)
-    private DoctorEntity doctor;
+    @Column(name = "doctor_id")
+    private String doctorId;
 
     @ManyToOne
     @JoinColumn(name = "specialization_id", nullable = false)

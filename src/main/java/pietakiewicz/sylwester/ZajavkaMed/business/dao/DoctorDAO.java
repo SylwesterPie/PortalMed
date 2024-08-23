@@ -12,7 +12,7 @@ public interface DoctorDAO {
 
     void saveDoctor(Doctor patient);
 
-    Doctor updateDoctor(Doctor updateDoctor, Integer patientId);
+    void updateDoctor(Doctor updateDoctor, Integer patientId);
 
     void deleteDoctor(Integer patientId);
 

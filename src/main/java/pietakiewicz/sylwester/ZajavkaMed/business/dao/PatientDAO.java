@@ -1,9 +1,7 @@
 package pietakiewicz.sylwester.ZajavkaMed.business.dao;
 
-import pietakiewicz.sylwester.ZajavkaMed.domain.Appointment;
 import pietakiewicz.sylwester.ZajavkaMed.domain.Patient;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface PatientDAO {
@@ -14,7 +12,7 @@ public interface PatientDAO {
 
     void savePatient(Patient patient);
 
-    Patient updatePatient(Patient updatePatient, Integer patientId);
+    void updatePatient(Patient updatePatient, Integer patientId);
 
     void deletePatient(Integer patientId);
 
