@@ -1,9 +1,11 @@
 package pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.repository.mapper.impl;
 
+import org.springframework.stereotype.Component;
 import pietakiewicz.sylwester.ZajavkaMed.domain.Specialization;
 import pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.entity.SpecializationEntity;
 import pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.repository.mapper.SpecializationEntityMapper;
 
+@Component
 public class SpecializationEntityMapperImpl implements SpecializationEntityMapper {
 
     public static Specialization fromEntity(SpecializationEntity specializationEntity) {
