@@ -15,4 +15,6 @@ public interface AppointmentDAO {
     List<Appointment> getAllAppointmentsForDoctor(String doctorId);
 
     List<Appointment> getAllComingSoonAppointmentsForPatient(String patientId);
+
+    void saveAppointment(Appointment appointment);
 }

@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface DoctorDAO {
 
-    Optional<Doctor> findByPesel(String pesel);
+    Optional<Doctor> findByCert(String cert);
 
     Optional<Doctor> findById(Integer patientId);
 
