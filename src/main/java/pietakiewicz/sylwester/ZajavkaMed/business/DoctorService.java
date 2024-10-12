@@ -16,8 +16,8 @@ public class DoctorService {
 
     private final DoctorDAO patientDAO;
 
-    public Doctor findDoctor(String pesel) {
-        Optional<Doctor> patient = patientDAO.findByPesel(pesel);
+    public Doctor findDoctor(String cert) {
+        Optional<Doctor> patient = patientDAO.findByCert(cert);
         if(patient.isEmpty()){
             throw new RuntimeException(); //TODO Create exception and change
         }

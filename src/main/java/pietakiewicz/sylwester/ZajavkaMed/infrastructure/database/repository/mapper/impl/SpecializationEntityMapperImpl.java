@@ -8,7 +8,7 @@ import pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.repository.mapp
 @Component
 public class SpecializationEntityMapperImpl implements SpecializationEntityMapper {
 
-    public static Specialization fromEntity(SpecializationEntity specializationEntity) {
+    public Specialization fromEntity(SpecializationEntity specializationEntity) {
         return Specialization.builder()
                 .specializationId(specializationEntity.getId())
                 .name(specializationEntity.getName())
@@ -16,7 +16,7 @@ public class SpecializationEntityMapperImpl implements SpecializationEntityMappe
                 .build();
     }
 
-    public static SpecializationEntity toEntity(Specialization specialization) {
+    public SpecializationEntity toEntity(Specialization specialization) {
         return SpecializationEntity.builder()
                 .id(specialization.getSpecializationId())
                 .name(specialization.getName())

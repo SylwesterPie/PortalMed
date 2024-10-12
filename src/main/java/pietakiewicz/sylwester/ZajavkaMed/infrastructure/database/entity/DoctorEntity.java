@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "doctors")
 @Data
@@ -27,4 +29,12 @@ public class DoctorEntity {
 
     @Column(nullable = false, length = 50)
     private String surname;
+
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "doctors_specializations",
+            joinColumns = @JoinColumn(name = "doctor_id"),
+            inverseJoinColumns = @JoinColumn(name = "specialization_id")
+    )
+    private Set<SpecializationEntity> specializations;
 }

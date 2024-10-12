@@ -2,7 +2,7 @@ package pietakiewicz.sylwester.ZajavkaMed.domain;
 
 import lombok.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Value
 @Builder
@@ -15,5 +15,5 @@ public class Doctor {
     String name;
     String surname;
     String cert;
-    List<Specialization> specializations;
+    Set<Specialization> specializations;
 }
