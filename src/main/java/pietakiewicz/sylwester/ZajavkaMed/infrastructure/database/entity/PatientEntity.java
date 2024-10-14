@@ -21,9 +21,6 @@ public class PatientEntity {
     @Column(name = "patient_id")
     private Long id;
 
-    @Column(name = "patient_card_uuid", nullable = false, unique = true, length = 32)
-    private String patientCardUuid;
-
     @Column(nullable = false, unique = true, length = 50)
     private String email;
 
@@ -39,7 +36,11 @@ public class PatientEntity {
     @Column(name = "date_birthday", nullable = false)
     private LocalDate dateBirthday;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_card_uuid", referencedColumnName = "patient_card_uuid", insertable = false, updatable = false)
+    @OneToOne
+    @JoinTable(
+            name = "patients_patients_cards",
+            joinColumns = @JoinColumn(name = "patient_id"),
+            inverseJoinColumns = @JoinColumn(name = "patient_card_id")
+    )
     private PatientCardEntity patientCard;
 }
