@@ -8,21 +8,21 @@ CREATE TABLE patients
 	date_birthday DATE NOT NULL
 );
 
-CREATE TABLE patients_cards
+CREATE TABLE patient_card
 (
 	patient_card_id SERIAL NOT NULL,
 	patient_card_uuid VARCHAR(32) NOT NULL UNIQUE
 );
 
-CREATE TABLE patients_patients_cards
+CREATE TABLE patient_patient_card
 (
 	patient_id INT NOT NULL UNIQUE,
 	patient_card_id INT NOT NULL UNIQUE,
-	PRIMARY KEY(doctor_id, patient_card_id),
-	CONSTRAINT fk_doctors_specializations_doctors
-		FOREIGN KEY (doctor_id)
-			REFERENCES doctors (doctor_id),
+	PRIMARY KEY(patient_id, patient_card_id),
+	CONSTRAINT fk_patient_patient_card
+		FOREIGN KEY (patient_id)
+			REFERENCES patient (patient_id),
 	CONSTRAINT fk_specializations_specializations_doctors
-		FOREIGN KEY (specialization_id)
-			REFERENCES specializations (specialization_id)
+		FOREIGN KEY (patient_card_id)
+			REFERENCES patient_card (patient_card_id)
 );

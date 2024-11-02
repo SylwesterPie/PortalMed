@@ -7,7 +7,7 @@ import pietakiewicz.sylwester.ZajavkaMed.domain.AppointmentStatus;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "appointments")
+@Table(name = "appointment")
 @Data
 @Builder
 @NoArgsConstructor

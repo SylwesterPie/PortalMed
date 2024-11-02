@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import java.util.Set;
 
 @Entity
-@Table(name = "doctors")
+@Table(name = "doctor")
 @Data
 @Builder
 @NoArgsConstructor
@@ -32,7 +32,7 @@ public class DoctorEntity {
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
-            name = "doctors_specializations",
+            name = "doctor_specialization",
             joinColumns = @JoinColumn(name = "doctor_id"),
             inverseJoinColumns = @JoinColumn(name = "specialization_id")
     )

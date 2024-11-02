@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "patients")
+@Table(name = "patient")
 @Data
 @Builder
 @NoArgsConstructor
@@ -38,7 +38,7 @@ public class PatientEntity {
 
     @OneToOne
     @JoinTable(
-            name = "patients_patients_cards",
+            name = "patient_patient_card",
             joinColumns = @JoinColumn(name = "patient_id"),
             inverseJoinColumns = @JoinColumn(name = "patient_card_id")
     )

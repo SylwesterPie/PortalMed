@@ -1,4 +1,4 @@
-CREATE TABLE doctors
+CREATE TABLE doctor
 (
 	doctor_id SERIAL NOT NULL UNIQUE,
 	email VARCHAR(50) NOT NULL UNIQUE,
@@ -6,22 +6,22 @@ CREATE TABLE doctors
 	surname VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE specializations
+CREATE TABLE specialization
 (
 	specialization_id SERIAL NOT NULL UNIQUE,
 	name varchar(50) NOT NULL,
 	description TEXT NOT NULL
 );
 
-CREATE TABLE doctors_specializations
+CREATE TABLE doctor_specialization
 (
 	doctor_id INT NOT NULL,
 	specialization_id INT NOT NULL,
 	PRIMARY KEY(doctor_id, specialization_id),
-	CONSTRAINT fk_doctors_specializations_doctors
+	CONSTRAINT fk_doctor_specialization_doctor
 		FOREIGN KEY (doctor_id)
-			REFERENCES doctors (doctor_id),
-	CONSTRAINT fk_specializations_specializations_doctors
+			REFERENCES doctor (doctor_id),
+	CONSTRAINT fk_specialization_specialization_doctor
 		FOREIGN KEY (specialization_id)
-			REFERENCES specializations (specialization_id)
+			REFERENCES specialization (specialization_id)
 );

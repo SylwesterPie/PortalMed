@@ -1,7 +1,7 @@
 CREATE TYPE status
 	AS ENUM('PLANNED', 'IN_PROGRESS', 'FINISHED', 'CANCELED');
 
-CREATE TABLE appointments
+CREATE TABLE appointment
 (
 	appointment_id SERIAL NOT NULL,
 	appointment_uuid VARCHAR(32) NOT NULL,
@@ -10,10 +10,10 @@ CREATE TABLE appointments
 	description TEXT,
 	date TIMESTAMP NOT NULL,
 	status STATUS NOT NULL,
-	CONSTRAINT fk_doctors_appointments
+	CONSTRAINT fk_doctor_appointment
 		FOREIGN KEY (doctor_id)
-			REFERENCES doctors (doctor_id),
-	CONSTRAINT fk_patients_appointments
+			REFERENCES doctor (doctor_id),
+	CONSTRAINT fk_patient_appointment
 		FOREIGN KEY (patient_id)
-			REFERENCES patients (patient_id)
+			REFERENCES patient (patient_id)
 );
