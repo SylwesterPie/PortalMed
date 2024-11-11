@@ -8,6 +8,8 @@ public interface PatientDAO {
 
     Optional<Patient> findByPesel(String pesel);
 
+    Optional<Patient> findByEmail(String email);
+
     Optional<Patient> findById(Integer patientId);
 
     void savePatient(Patient patient);

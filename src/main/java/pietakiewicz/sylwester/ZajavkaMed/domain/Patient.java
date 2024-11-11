@@ -16,5 +16,5 @@ public class Patient {
     String surname;
     String pesel;
     OffsetDateTime birthday;
-    PatientCard patientCard;
+    String patientCardUuid;
 }

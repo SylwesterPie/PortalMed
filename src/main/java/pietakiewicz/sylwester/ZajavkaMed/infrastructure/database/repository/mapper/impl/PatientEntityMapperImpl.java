@@ -26,10 +26,7 @@ public class PatientEntityMapperImpl implements PatientEntityMapper {
                 .surname(patient.getSurname())
                 .pesel(patient.getPesel())
                 .birthday(patient.getDateBirthday().atStartOfDay().atOffset(ZoneOffset.UTC))
-                .patientCard(
-                        patientCardEntityMapper
-                                .fromEntity(patient.getPatientCard())
-                )
+                .patientCardUuid(patient.getPatientCardUuid())
                 .build();
     }
 
@@ -42,10 +39,7 @@ public class PatientEntityMapperImpl implements PatientEntityMapper {
                 .surname(patient.getSurname())
                 .pesel(patient.getPesel())
                 .dateBirthday(patient.getBirthday().toLocalDate())
-                .patientCard(
-                        patientCardEntityMapper
-                                .toEntity(patient.getPatientCard())
-                )
+                .patientCardUuid(patient.getPatientCardUuid())
                 .build();
     }
 }

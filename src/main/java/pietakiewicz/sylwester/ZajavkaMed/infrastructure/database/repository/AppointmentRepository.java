@@ -34,4 +34,9 @@ public class AppointmentRepository implements AppointmentDAO {
     public List<Appointment> getAllComingSoonAppointmentsForPatient(String patientId) {
         return List.of();
     }
+
+    @Override
+    public void saveAppointment(Appointment appointment) {
+
+    }
 }

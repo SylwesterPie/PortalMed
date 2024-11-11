@@ -8,11 +8,10 @@ import java.util.UUID;
 @Value
 @Builder
 @With
-@EqualsAndHashCode(of = "patientCardId")
+@EqualsAndHashCode
 @ToString(of = "uuid")
 public class PatientCard {
-    Long patientCardId;
-    UUID uuid;
+    String uuid;
     List<Diseases> diseasesList;
     List<Medicament> medicamentList;
     List<Appointment> appointmentList;

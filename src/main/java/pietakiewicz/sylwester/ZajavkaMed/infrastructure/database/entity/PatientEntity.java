@@ -36,11 +36,6 @@ public class PatientEntity {
     @Column(name = "date_birthday", nullable = false)
     private LocalDate dateBirthday;
 
-    @OneToOne
-    @JoinTable(
-            name = "patient_patient_card",
-            joinColumns = @JoinColumn(name = "patient_id"),
-            inverseJoinColumns = @JoinColumn(name = "patient_card_id")
-    )
-    private PatientCardEntity patientCard;
+    @Column(name = "patient_card_uuid")
+    private String patientCardUuid;
 }

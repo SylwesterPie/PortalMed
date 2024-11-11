@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import java.util.UUID;
 
 @Entity
-@Table(name = "patients_cards")
+@Table(name = "patient_card")
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,10 +16,7 @@ import java.util.UUID;
 public class PatientCardEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "patient_card_id")
-    private Long id;
-
     @Column(name = "patient_card_uuid", nullable = false, unique = true, length = 32)
-    private String uuid = UUID.randomUUID().toString().replace("-", "");
+    private String uuid;
+
 }
