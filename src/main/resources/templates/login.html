@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logowanie - Portal Med</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light d-flex align-items-center min-vh-100">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="text-start mb-4">
+                <a th:href="@{/}" class="text-light text-decoration-none fs-2 fw-bold">PORTAL MED</a>
+            </div>
+
+            <div class="card bg-secondary p-4 rounded">
+                <h2 class="text-center mb-4">Logowanie</h2>
+                <form th:action="@{/login}" method="post">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Adres Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Podaj swój email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Hasło</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło" required>
+                            <button type="button" class="btn btn-outline-light" onclick="togglePasswordVisibility()">Pokaż</button>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Zaloguj</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-3">
+                    <a th:href="@{/register}" class="text-light">Stwórz konto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById("password");
+        const passwordButton = document.querySelector("button[onclick='togglePasswordVisibility()']");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            passwordButton.textContent = "Ukryj";
+        } else {
+            passwordField.type = "password";
+            passwordButton.textContent = "Pokaż";
+        }
+    }
+</script>
+</body>
+</html>
