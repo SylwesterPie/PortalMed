@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
     static final String HOME = "/";
+    static final String OFFER = "/offer";
+    static final String ABOUT_US = "/about_ud";
 
     @RequestMapping(value = HOME, method = RequestMethod.GET)
     public String homePage() {
