@@ -12,11 +12,8 @@ public interface PatientDAO {
 
     Optional<Patient> findById(Integer patientId);
 
-    void savePatient(Patient patient);
+    void updateEmailByOldEmail(String newEmail, String oldEmail);
 
-    void updatePatient(Patient updatePatient, Integer patientId);
-
-    void deletePatient(Integer patientId);
 
 
 }

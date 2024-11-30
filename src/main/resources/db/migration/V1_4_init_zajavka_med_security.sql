@@ -9,6 +9,7 @@ CREATE TABLE user_patient
     CONSTRAINT fk_user_patient_email
         FOREIGN KEY (email)
             REFERENCES patient (email)
+                ON UPDATE CASCADE
 );
 
 CREATE TABLE role_patient

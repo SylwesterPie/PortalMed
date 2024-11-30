@@ -43,6 +43,11 @@
 
                 <!-- Formularze zmiany hasła i emaila -->
                 <div class="row">
+                    <div th:switch="${changeEmail}">
+                        <p th:case="'change'" class="fw-bold text-danger">Email zmieniono poprawnie!</p>
+                        <p th:case="'notChange'" class="fw-bold text-success">Cos poszło nie tak!</p>
+                        <p th:case="*"></p>
+                    </div>
                     <!-- Zmiana hasła -->
                     <div class="col-md-6">
                         <form th:action="@{/profile/change-password}" method="post">

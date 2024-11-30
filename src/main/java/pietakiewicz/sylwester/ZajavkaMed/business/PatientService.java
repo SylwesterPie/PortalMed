@@ -45,12 +45,13 @@ public class PatientService {
     }
 
     @Transactional
-    public Patient updatePatient(Patient updatePatient, Integer patientId){
-        patientDAO.updatePatient(updatePatient, patientId);
-        Optional<Patient> newPatient = patientDAO.findById(patientId);
-        if (newPatient.isEmpty()){
-            throw new RuntimeException(); //TODO Create exception and change
+    public void updateEmail(String username, String newEmail){
+        String oldEmail = userRepository.findByUserName(username).getEmail();
+        try {
+            patientDAO.updateEmailByOldEmail(newEmail, oldEmail);
+//            userRepository.updateEmailByOldEmail(newEmail, oldEmail);
+        }catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
-        return newPatient.get();
     }
 }

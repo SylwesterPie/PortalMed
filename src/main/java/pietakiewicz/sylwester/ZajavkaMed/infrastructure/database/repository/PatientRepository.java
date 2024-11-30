@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import pietakiewicz.sylwester.ZajavkaMed.business.dao.PatientDAO;
 import pietakiewicz.sylwester.ZajavkaMed.domain.Patient;
-import pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.entity.PatientEntity;
 import pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.repository.jpa.PatientJpaRepository;
 import pietakiewicz.sylwester.ZajavkaMed.infrastructure.database.repository.mapper.PatientEntityMapper;
 
@@ -12,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class PatientRepository  implements PatientDAO {
+public class PatientRepository implements PatientDAO {
 
     private final PatientJpaRepository patientJpaRepository;
     private final PatientEntityMapper mapper;
@@ -35,17 +34,9 @@ public class PatientRepository  implements PatientDAO {
     }
 
     @Override
-    public void savePatient(Patient patient) {
-
+    public void updateEmailByOldEmail(String newEmail, String oldEmail) {
+        patientJpaRepository.updateEmailByOldEmail(newEmail, oldEmail);
     }
 
-    @Override
-    public void updatePatient(Patient updatePatient, Integer patientId) {
 
-    }
-
-    @Override
-    public void deletePatient(Integer patientId) {
-
-    }
 }
