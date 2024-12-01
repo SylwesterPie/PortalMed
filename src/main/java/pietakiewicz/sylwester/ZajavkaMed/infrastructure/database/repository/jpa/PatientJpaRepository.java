@@ -18,5 +18,5 @@ public interface PatientJpaRepository extends JpaRepository<PatientEntity, Long>
 
     @Modifying
     @Query(value = "UPDATE patient SET email = :email WHERE email = :oldEmail", nativeQuery = true)
-    int updateEmailByOldEmail(@Param("email") String email, @Param("oldEmail") String oldEmail);
+    void updateEmailByOldEmail(@Param("email") String email, @Param("oldEmail") String oldEmail);
 }

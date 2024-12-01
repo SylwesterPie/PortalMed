@@ -1,6 +1,7 @@
 package pietakiewicz.sylwester.ZajavkaMed.api.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import pietakiewicz.sylwester.ZajavkaMed.domain.Patient;
 import java.security.Principal;
 import java.time.format.DateTimeFormatter;
 
+@Slf4j
 @Controller
 @AllArgsConstructor
 public class PatientController {
@@ -38,17 +40,40 @@ public class PatientController {
         return "profile";
     }
 
-    @RequestMapping(value = PROFILE+"/change-email", method = RequestMethod.POST)
-    public String updateEmail(@RequestParam("newEmail") String newEmail, Principal principal, Model model){
+    @RequestMapping(value = PROFILE, method = RequestMethod.POST)
+    public String updateEmailOrPassword(
+            Principal principal, Model model,
+            @RequestParam(value = "newEmail", required = false) String newEmail,
+            @RequestParam(value = "oldPassword", required = false) String oldPassword,
+            @RequestParam(value = "newPassword", required = false) String newPassword,
+            @RequestParam(value = "confirmPassword", required = false) String confirmPassword
+    ) {
 
         String userName = principal.getName();
         patientData(model, userName);
-        try {
-            patientService.updateEmail(userName, newEmail);
-            model.addAttribute("changeEmail", "change");
-        } catch (RuntimeException e) {
-            model.addAttribute("changeEmail", "notChange");
+        if (newEmail != null) {
+            try {
+                patientService.updateEmail(userName, newEmail);
+                model.addAttribute("changeEmail", "change");
+            } catch (RuntimeException e) {
+                model.addAttribute("changeEmail", "notChange");
+            }
+        } else if (oldPassword != null && newPassword != null && confirmPassword != null) {
+            try {
+                boolean passwordCorrectness = patientService.updatePassword(userName, oldPassword, newPassword, confirmPassword);
+                if (passwordCorrectness) {
+                    model.addAttribute("changePassword", "change");
+                } else {
+                    model.addAttribute("changePassword", "incorrectlyPassword");
+                }
+            } catch (RuntimeException e) {
+                model.addAttribute("changePassword", "notChange");
+            }
+        } else {
+            log.info("User send blank form");
         }
+
+
         return "profile";
     }
 }

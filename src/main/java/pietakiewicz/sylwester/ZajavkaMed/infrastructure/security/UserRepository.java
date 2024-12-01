@@ -6,13 +6,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     UserEntity findByEmail(String email);
-    UserEntity findByUserName(String userName);
+
+    Optional<UserEntity> findByUserName(String userName);
 
     @Modifying
-    @Query("UPDATE UserEntity u SET u.email = :email WHERE u.email=:oldEmail")
-    void updateEmailByOldEmail(@Param("email") String email, @Param("oldEmail") String oldEmail);
+    @Query("UPDATE UserEntity u SET u.password = :password WHERE u.userName=:userName")
+    void updatePasswordByUserName(@Param("userName") String userName, @Param("password") String newPassword);
 }
